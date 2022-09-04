@@ -6,6 +6,6 @@ export default class ConfigAutomaticTest {
 
   static async initConfig() {
     // se configura que debe esperar que se ejecute el navegador google chrome.
-    return await new Builder().forBrowser('chrome').build()
+    return await new Builder().forBrowser('firefox').build()
   }
 }

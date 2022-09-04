@@ -107,8 +107,6 @@ export default class Comands{
       return result;
     }
   }
-
-
      // Funcion que nos permite esperar un determinado tiempo en segundos
      delay(time) {
         return new Promise((resolve) => {
