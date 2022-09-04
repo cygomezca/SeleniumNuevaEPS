@@ -1,11 +1,11 @@
 import Comands from "../Comandos/Comands.js"
 
-export default class RegistroFormulario extends Comands{
+export default class Registro extends Comands{
     constructor(driver){
         super(driver);
     }
 
-    async CP_14(){
+    async NuevaEps(){
 
         await this.newGetUrl();
 
@@ -44,7 +44,6 @@ export default class RegistroFormulario extends Comands{
 
         //se da la orden de escribir el texto en el elemento encontrado.
         await this.sendKey(Apellido, "G0m4z.26566");
-
         
         //Despues de encontrar el elemento espera 1 segundo.
         await this.delay(1);
@@ -52,38 +51,38 @@ export default class RegistroFormulario extends Comands{
         // aquí se desplaza la pantalla hacia abajo haciendo un scroll 100px
         await this.scroll(0,100);
 
-        // Se da la orden de buscar el datapicker
-        let cumpleaños = await this.getElementById("loginForm:tipoId");
+        // Se da la orden para buscar el elemento clave tipo de documento
+        let documento = await this.getElementById("loginForm:tipoId");
 
         // Se da click en el datapiker
-        await this.click(cumpleaños);
+        await this.click(documento);
         
         //Despues damos 1 segundo de espera
         await this.delay(1);       
 
-        // Se da la orden de buscar el elemento con xPath  //*[@id="loginForm:tipoId"]/option[2]']
-        let mes = await this.getElementByxPath("//option[@value='3']");
+        // Se da la orden de buscar el elemento con xPath para la opcion cc
+        let cc = await this.getElementByxPath("//option[@value='3']");
 
-        // Se da la orden de hacer click en el elemento al macenado en la variable mes
-        await this.click(mes);
+        // Se da la orden de hacer click en el elemento al macenado en la variable cc
+        await this.click(cc);
 
         //Despues damos 1 segundo de espera
         await this.delay(1)
 
-        // Se da la orden de buscar el elemento con el xpath //option[@value=1987]
-        let añoSeleccionado = await this.getElementById("loginForm:loginButton");
+        // Se da la orden de buscar el elemento de boton de login
+        let login = await this.getElementById("loginForm:loginButton");
 
         // Se da la orden de hacer clic el elemento encontrado
-        await this.click(añoSeleccionado);
+        await this.click(login);
 
         //Despues damos 1 segundo de espera
         await this.delay(1);
 
-        // Se da la orden de buscar el elemento con el xpath //div[@aria-label='Choose Tuesday, August 25th, 1987']
-        let dia = await this.getElementById("tabServicios");
+        // Se da la orden de buscar el elemento servicios en linea
+        let servicios = await this.getElementById("tabServicios");
 
         // Se da la orden de hacer clic el elemento encontrado
-        await this.click(dia);
+        await this.click(servicios);
 
         //Despues damos 1 segundo de espera
         await this.delay(1);
@@ -94,39 +93,39 @@ export default class RegistroFormulario extends Comands{
         //Despues damos 1 segundo de espera
         await this.delay(1);
 
-        // Se da la orden de buscar el elemento con xPath //div[@class='subjects-auto-complete__value-container subjects-auto-complete__value-container--is-multi css-1hwfws3']
-        let materia =  await this.getElementByxPath("html/body/div/div[1]/table/tbody/tr/td[2]/div/table/tbody/tr[1]/td/div/span/table/tbody/tr[2]/td/a"); 
+        // Se da la orden de buscar el elemento con xPath Afiliado POS
+        let afiliado =  await this.getElementByxPath("html/body/div/div[1]/table/tbody/tr/td[2]/div/table/tbody/tr[1]/td/div/span/table/tbody/tr[2]/td/a"); 
         // Se da la orden de hacer click sobre le campo asignatura / materia
-        await this.click(materia);
+        await this.click(afiliado);
 
         //Despues damos 1 segundo de espera
         await this.delay(1);
         
-         // Se da la orden de buscar el elemento con xPath //div[@class='subjects-auto-complete__value-container subjects-auto-complete__value-container--is-multi css-1hwfws3']
+         // Se da la orden de buscar el elemento con xPath servicio cliente
         let servicioCliente =  await this.getElementByxPath("html/body/div/div[1]/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td/div/span/table/tbody/tr[13]/td/div"); 
-         // Se da la orden de hacer click sobre le campo asignatura / materia
+         // Se da la orden de hacer click sobre servicio al cliente
         await this.click(servicioCliente);
 
          //Despues damos 1 segundo de espera
         await this.delay(1);
         
-        
-        // Se da la orden de buscar el elemento con xPath //div[@class='subjects-auto-complete__value-container subjects-auto-complete__value-container--is-multi css-1hwfws3']
+        // Se da la orden de buscar el elemento con xPath Certificaciones
         let certificaciones =  await this.getElementByxPath("html/body/div/div[1]/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td/div/span/table/tbody/tr[14]/td/div/table/tbody/tr[3]/td[2]/div/p"); 
-         // Se da la orden de hacer click sobre le campo asignatura / materia
+         // Se da la orden de hacer click sobre certificaciones
         await this.click(certificaciones);
 
          //Despues damos 1 segundo de espera
         await this.delay(1);
 
-        let afiliacion = await this.getElementByxPath("html/body/div/div[1]/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td/div/span/table/tbody/tr[14]/td/div/table/tbody/tr[4]/td/div/table/tbody/tr[1]/td[2]/p/a");
+        let afiliacion_id= await this.getElementByxPath("html/body/div/div[1]/table/tbody/tr/td[2]/div/table/tbody/tr[2]/td/div/span/table/tbody/tr[14]/td/div/table/tbody/tr[4]/td/div/table/tbody/tr[1]/td[2]/p/a");
 
         // Se da la orden de hacer clic el elemento encontrado
-        await this.click(afiliacion);
+        await this.click(afiliacion_id);
 
         //Despues damos 1 segundo de espera
         await this.delay(1);
 
+        // Se da la orden de buscar el elemento de seleccionar todos
         let selectorTodos = await this.getElementById("form:allSelection");
 
         // Se da la orden de hacer clic el elemento encontrado
@@ -135,47 +134,13 @@ export default class RegistroFormulario extends Comands{
         //Despues damos 1 segundo de espera
         await this.delay(1);
 
-        //let botonImprimir = await this.getElementById("form:j_id170");
+         // Se da la orden de buscar el elemente boton de imprimir
+        let botonImprimir = await this.getElementById("form:j_id170");
 
         // Se da la orden de hacer clic el elemento encontrado
-        //await this.click(botonImprimir);
+        await this.click(botonImprimir);
 
         //Despues damos 1 segundo de espera
         await this.delay(1);
-    //assert
-
-    //assert using chai should
-    let todoText = await this.findElement(By.xpath("html/body/div/div[1]/table/tbody/tr/td[3]/div/table/tbody/tr[2]/td/form/table/tbody/tr[5]/td[2]/table/tbody/tr[3]/td/div/table/tbody/tr/td[2]/span"))
-    .getText().then(function(value){
-        return value
-    });
-
-    //assert using chai should
-    todoText.should.equal("CARMEN YISELLA GOMEZ CASTILLO");
-
-        //https://portal.nuevaeps.com.co/Portal/downloadservlet?i=1&id=1662175136398x
-        //*[@id="document:html"]/head/link[9]
     }
 }
-/*[@id="j_id107"] cedula
-/html/body/div/div[1]/table/tbody/tr/td[3]/div/table/tbody/tr[1]/td/table/tbody/tr[2]/td/p/span/span[2]
-/html/body/div/div[1]/table/tbody/tr/td[3]/div/table/tbody/tr[1]/td/table/tbody/tr[2]/td/p/span/span[3]
-//*[@id="j_id109"]
-
-
-//*[@id="form:j_id154:0"]
-//*[@id="form:j_id154:0"]/td[1]
-//*[@id="form:j_id154:0"]/td[2]
-
-
-//*[@id="form:j_id154:0:j_id157"]
-/html/body/div[1]/div[1]/table/tbody/tr/td[3]/div/table/tbody/tr[2]/td/form/table/tbody/tr[5]/td[2]/table/tbody/tr[3]/td/div/table/tbody/tr/td[1]/span
-
-
-//*[@id="form:j_id154:0:j_id160"]
-/html/body/div[1]/div[1]/table/tbody/tr/td[3]/div/table/tbody/tr[2]/td/form/table/tbody/tr[5]/td[2]/table/tbody/tr[3]/td/div/table/tbody/tr/td[2]/span
-
-/html/body/div/div[1]/table/tbody/tr/td[3]/div/table/tbody/tr[2]/td/form/table/tbody/tr[5]/td[2]/table/tbody/tr[3]/td/div/table/tbody/tr/td[2]/span
-
-
-*/
